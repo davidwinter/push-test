@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/davidwinter/push-test/compare/v1.0.1...v1.1.0) (2023-09-07)
+
+
+### 🚀 Features
+
+* add CI name to workflow ([1b3a48e](https://github.com/davidwinter/push-test/commit/1b3a48e98d4cb8e3cdc4b81a1b430f08dc368a03))
+* final version ([0e0b0b4](https://github.com/davidwinter/push-test/commit/0e0b0b44a5173f5c4087f10a031fdef4ed59d2cd))
+
 ## [1.0.1](https://github.com/davidwinter/push-test/compare/v1.0.0...v1.0.1) (2023-09-07)
 
 

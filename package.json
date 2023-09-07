@@ -1,6 +1,6 @@
 {
   "name": "push-test",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "update",
   "main": "index.js",
   "scripts": {
