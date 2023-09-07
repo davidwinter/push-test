@@ -35,6 +35,7 @@ jobs:
           fetch-depth: 0
 
       - if: ${{ steps.release.outputs.pr }}
+        name: Add compare comment to PR
         run: |
           PR_NUMBER=$(echo '${{steps.release.outputs.pr}}' | jq '.number')
 
