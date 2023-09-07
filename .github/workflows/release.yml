@@ -48,7 +48,7 @@ jobs:
           MESSAGE_BODY=$(cat <<EOT
           ## 🚨 🔍 compare commits for this release
 
-          https://github.com/${{github.repository}}/compare/production..main
+          https://github.com/${{github.repository}}/compare/production...main
           EOT)
 
           gh pr comment "${PR_NUMBER}" --edit-last --body "${MESSAGE_BODY}" \
