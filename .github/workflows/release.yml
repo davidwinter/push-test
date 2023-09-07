@@ -43,7 +43,7 @@ jobs:
           MESSAGE_BODY=$(cat <<EOT
           # 🚨 🔍 Compare commits for this release
 
-          https://github.com/davidwinter/push-test/compare/production..${{github.sha}}
+          https://github.com/${{github.repository}}/compare/production..${{github.sha}}
           EOT)
 
           gh pr comment "${PR_NUMBER}" --edit-last --body "${MESSAGE_BODY}" \
