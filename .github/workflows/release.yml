@@ -41,6 +41,8 @@ jobs:
           echo "${PR_NUMBER}"
 
           MESSAGE_BODY=$(cat <<EOT
+          # 🚨 🔍 Compare commits for this release
+
           https://github.com/davidwinter/push-test/compare/production..${{github.sha}}
           EOT)
 
