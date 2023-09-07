@@ -36,6 +36,7 @@ jobs:
           fetch-depth: 0
 
       - run: |
+          echo '${{steps.release.outputs.sha}}'
           PR_NUMBER=$(echo '${{steps.release.outputs.pr}}' | jq '.number')
           echo "${PR_NUMBER}"
           MESSAGE_BODY='hello'
