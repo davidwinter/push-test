@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/davidwinter/push-test/compare/v1.0.0...v1.0.1) (2023-09-07)
+
+
+### 🐛 Bug fixes
+
+* ensure we checkout regardless ([3791327](https://github.com/davidwinter/push-test/commit/3791327d5e74465e8678016fbde30076398eef45))
+
 ## 1.0.0 (2023-09-07)
 
 
