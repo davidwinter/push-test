@@ -39,7 +39,11 @@ jobs:
           echo '${{steps.release.outputs.sha}}'
           PR_NUMBER=$(echo '${{steps.release.outputs.pr}}' | jq '.number')
           echo "${PR_NUMBER}"
-          MESSAGE_BODY='hello'
+
+          MESSAGE_BODY=$(cat <<EOT
+          https://github.com/davidwinter/push-test/compare/production..${{github.sha}}
+          EOT)
+
           gh pr comment "${PR_NUMBER}" --edit-last --body "${MESSAGE_BODY}" \
             || gh pr comment "${PR_NUMBER}" --body "${MESSAGE_BODY}"
         env:
