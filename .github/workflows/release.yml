@@ -5,7 +5,7 @@ on:
 
 permissions:
   contents: write
-#   pull-requests: write
+  pull-requests: write
 
 name: release
 
@@ -13,11 +13,28 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: google-github-actions/release-please-action@v3
+        id: release
         with:
-          ref: ${{github.sha}}
-          fetch-depth: 0
-      - run: git push origin ${{github.sha}}:production
+          release-type: node
+          package-name: push-test
+          # https://github.com/googleapis/release-please/blob/c9147663efc7ec1c4ea632a90aab9c8647b5ca46/src/util/filter-commits.ts#L20C37-L20C37
+          changelog-types: >
+            [
+              {type: "feat", section: "🚀 Features"},
+              {type: "fix", section: "🐛 Bug fixes"},
+              {type: "perf", section: "🏎️ Performance improvements"},
+              {type: "revert", section: "⏪ Reverts"},
+              {type: "build", section: "🔨 Build System"},
+              {type: "ci", section: "🚚 Continuous Integration"},
+              {type: "chore", section: "🚶 Miscellaneous chores"},
+            ]
+
+      # - uses: actions/checkout@v4
+      #   with:
+      #     ref: ${{github.sha}}
+      #     fetch-depth: 0
+      # - run: git push origin ${{github.sha}}:production
       # - uses: google-github-actions/release-please-action@v3
       #   id: release
       #   with:
