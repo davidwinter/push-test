@@ -30,7 +30,9 @@ jobs:
               {"type": "chore", "section": "🚶 Miscellaneous chores"}
             ]
 
-      - run: echo ${{steps.release.outputs.pr}}
+      - run: |
+          PR_NUMBER=$(echo '${{steps.release.outputs.pr}}' | jq '.number')
+          echo "${PR_NUMBER}"
 
       # - uses: actions/checkout@v4
       #   with:
