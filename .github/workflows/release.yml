@@ -30,6 +30,11 @@ jobs:
               {"type": "chore", "section": "🚶 Miscellaneous chores"}
             ]
 
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{github.sha}}
+          fetch-depth: 0
+
       - run: |
           PR_NUMBER=$(echo '${{steps.release.outputs.pr}}' | jq '.number')
           echo "${PR_NUMBER}"
@@ -37,10 +42,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
-      # - uses: actions/checkout@v4
-      #   with:
-      #     ref: ${{github.sha}}
-      #     fetch-depth: 0
+
       # - run: git push origin ${{github.sha}}:production
       # - uses: google-github-actions/release-please-action@v3
       #   id: release
