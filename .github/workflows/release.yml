@@ -30,6 +30,8 @@ jobs:
               {"type": "chore", "section": "🚶 Miscellaneous chores"}
             ]
 
+      - run: echo ${{steps.release.outputs.pr}}
+
       # - uses: actions/checkout@v4
       #   with:
       #     ref: ${{github.sha}}
