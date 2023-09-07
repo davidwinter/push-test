@@ -36,13 +36,7 @@ jobs:
 
       - if: ${{ steps.release.outputs.pr }}
         run: |
-          echo 'SHA: ${{steps.release.outputs.sha}}'
-          echo 'PR JSON: '
-          echo '${{steps.release.outputs.pr}}' | jq
-
           PR_NUMBER=$(echo '${{steps.release.outputs.pr}}' | jq '.number')
-
-          echo "PR number: ${PR_NUMBER}"
 
           MESSAGE_BODY=$(cat <<EOT
           ## 🚨 🔍 compare commits for this release
@@ -57,26 +51,4 @@ jobs:
 
 
       - if: ${{ steps.release.outputs.release_created }}
-        run: git push origin main:production
-
-
-      # - uses: actions/checkout@v2
-      #   if: ${{ steps.release.outputs.release_created }}
-
-      # - uses: actions/setup-node@v2
-      #   with:
-      #     node-version: '18.x'
-      #     registry-url: 'https://registry.npmjs.org'
-      #     cache: 'npm'
-      #   if: ${{ steps.release.outputs.release_created }}
-
-      # - run: npm ci
-      #   if: ${{ steps.release.outputs.release_created }}
-
-      # - run: npm run build
-      #   if: ${{ steps.release.outputs.release_created }}
-
-      # - run: npm publish
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #   if: ${{ steps.release.outputs.release_created }}
+        run: echo 'deploying to prod...' # git push origin main:production
