@@ -38,7 +38,9 @@ jobs:
       - run: |
           PR_NUMBER=$(echo '${{steps.release.outputs.pr}}' | jq '.number')
           echo "${PR_NUMBER}"
-          gh pr comment "${PR_NUMBER}" --edit-last --body 'Hello'
+          MESSAGE_BODY='hello'
+          gh pr comment "${PR_NUMBER}" --edit-last --body "${MESSAGE_BODY}" \
+            || gh pr comment "${PR_NUMBER}" --body "${MESSAGE_BODY}"
         env:
           GH_TOKEN: ${{ github.token }}
 
