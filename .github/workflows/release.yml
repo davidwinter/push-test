@@ -12,6 +12,8 @@ name: release
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
     steps:
       - uses: google-github-actions/release-please-action@v3
         id: release
@@ -53,3 +55,10 @@ jobs:
 
       - if: ${{ steps.release.outputs.release_created }}
         run: echo 'deploying to prod...' # git push origin main:production
+
+  deploy-wait:
+    runs-on: ubuntu-latest
+    needs: release-please
+
+    steps:
+      - run: echo hello
