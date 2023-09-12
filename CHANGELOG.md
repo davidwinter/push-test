@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/davidwinter/push-test/compare/v1.1.0...v1.1.1) (2023-09-12)
+
+
+### 🔨 Build System
+
+* wip ([5ed20b0](https://github.com/davidwinter/push-test/commit/5ed20b063ae87eaaf31d6d1a81b41b21af82834d))
+* wip ([6ff64b5](https://github.com/davidwinter/push-test/commit/6ff64b5405012157ec6afdb56e7c7d24e0e7129a))
+
 ## [1.1.0](https://github.com/davidwinter/push-test/compare/v1.0.1...v1.1.0) (2023-09-07)
 
 
