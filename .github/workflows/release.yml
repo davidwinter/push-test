@@ -59,6 +59,9 @@ jobs:
   deploy-wait:
     runs-on: ubuntu-latest
     needs: release-please
+    if: ${{needs.release-please.outputs.release_created}}
 
     steps:
-      - run: echo hello
+      - env:
+          RELEASE_CREATED: ${{needs.release-please.outputs.release_created}}
+        run: echo "hello; ${RELEASE_CREATED}"
